@@ -10,15 +10,16 @@ function App() {
       email,
       password
     };
-    const request = await fetch("http://localhost:5174/login",{
+    const response = await fetch("http://localhost:5174/login",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
       },
+      credentials:"include",
       body:JSON.stringify(userdetails)
     })
-    const response = await request.json();
-    console.log(response);
+    const data = await response.json();
+    console.log(data);
   }
   return (
     <>
@@ -34,4 +35,5 @@ function App() {
     </>
   )
 }
+
 export default App
